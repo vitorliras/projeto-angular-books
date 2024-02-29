@@ -16,10 +16,7 @@ export class LivroService {
     const params = new HttpParams().append('q', busca)
     return this.http.get<LivrosResultado>(this.API, {params})
     .pipe(
-      tap((retorno) => console.log("fluxo 1",retorno)),
       map(retorno => retorno.items),
-      tap((retorno) => console.log("fluxo 2",retorno)),
-
     )
   }
 
