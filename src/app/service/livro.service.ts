@@ -12,12 +12,12 @@ export class LivroService {
 
   constructor(private http: HttpClient) { }
 
-  buscar(busca: string): Observable<Item[]>{
+  buscar(busca: string): Observable<LivrosResultado>{
     const params = new HttpParams().append('q', busca)
     return this.http.get<LivrosResultado>(this.API, {params})
-    .pipe(
-      map(retorno => retorno.items),
-    )
+    // .pipe(
+    //   map(retorno => retorno.items ?? []),
+    // )
   }
 
 
